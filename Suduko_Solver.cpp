@@ -20,7 +20,7 @@ bool are_we_put_right_place(int mat[][9],int i,int j,int num,int n){
     return true;
 }
 bool SudokoSolver(int mat[][9],int i,int j,int n){
-	if(i==n){
+	if(i==n){//base case
         for(int k=0;k<n;k++){
             for(int l=0;l<n;l++){
                 cout<<mat[k][l]<<" ";
@@ -35,7 +35,7 @@ bool SudokoSolver(int mat[][9],int i,int j,int n){
 	if(mat[i][j]!=0){
 		return SudokoSolver(mat,i,j+1,n);
 	}
-    for(int num=1;num<=n;num++){
+    for(int num=1;num<=n;num++){//recursive case
         if(are_we_put_right_place(mat,i,j,num,n)==true){
             mat[i][j]=num;
             bool check_for_remain=SudokoSolver(mat,i,j+1,n);
